@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => 'mongodb',
 
     /*
     |--------------------------------------------------------------------------
@@ -32,6 +32,18 @@ return [
     */
 
     'connections' => [
+	
+		'mongodb' => [
+			'driver'   => 'mongodb',
+			'host'     => 'localhost',
+			'port'     => 27017,
+			'database' => 'laraveldb',
+			'username' => '',
+			'password' => '',
+			'options'  => [
+				'database' => 'admin' // sets the authentication database required by mongo 3
+			]
+		],
 
         'sqlite' => [
             'driver' => 'sqlite',
