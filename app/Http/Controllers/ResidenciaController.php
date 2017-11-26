@@ -42,9 +42,9 @@ class ResidenciaController extends Controller
     }
 
     public function mostrarLista()
-    {
-        $residencia = Residencia::where('codigo','=',request()->codigo)->get();
-        return view('residencia.index', compact('residencia'));
+    {      
+       $residencia = Residencia::where('codigo',htmlspecialchars($_POST["codigo"]) )->get();       
+       return view('residencia.index', compact('residencia'));
     }
     
     public function resultado()

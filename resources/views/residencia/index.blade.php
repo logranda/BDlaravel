@@ -16,14 +16,13 @@
 			<th>estrato</th>
 			<th>tipo</th>
       		<th>codigo</th>
-			<th>coordenadas-Longitude</th>
-		    <th>coordenadas-Latitude</th>
+			
 			<th>numero_residentes</th>
       		<th>hab</th>
 	</tr>
 
 
-  @foreach($residencia as $r)
+  @foreach($residencia as $r)  
       <tr>
         <td>{{$r->_id}}</td>
         <td>{{$r->direccion}}</td>
@@ -32,9 +31,8 @@
         <td>{{$r->estrato}}</td>
         <td>{{$r->tipo}}</td>
         <td>{{$r->codigo}}</td>
-        <td>{{$r->coordinates[0]}}</td>
-        <td>{{$r->coordinates[1]}}</td>
-		<td>{{$r->type}}</td>
+       
+		
         <td>{{$r->numero_residentes}}</td>
 		<td>{{$r->hab[0]}}</td>
       </tr>
