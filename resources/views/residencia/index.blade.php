@@ -16,7 +16,8 @@
 			<th>estrato</th>
 			<th>tipo</th>
       		<th>codigo</th>
-			
+			<th>latitude</th>
+			<th>longitude</th>
 			<th>numero_residentes</th>
       		<th>hab</th>
 	</tr>
@@ -31,8 +32,9 @@
         <td>{{$r->estrato}}</td>
         <td>{{$r->tipo}}</td>
         <td>{{$r->codigo}}</td>
-       
-		
+    	
+        <td>{{$r->coordinates['latitude']}}</td>
+        <td>{{$r->coordinates['longitude']}}</td>
         <td>{{$r->numero_residentes}}</td>
 		<td>{{$r->hab[0]}}</td>
       </tr>
