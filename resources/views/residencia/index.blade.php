@@ -36,7 +36,7 @@
         <td>{{$r->coordinates['latitude']}}</td>
         <td>{{$r->coordinates['longitude']}}</td>
         <td>{{$r->numero_residentes}}</td>
-		<td>{{$r->hab[0]}}</td>
+		<td>{{$r->hab}}</td>
       </tr>
   @endforeach
 
