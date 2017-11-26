@@ -28,14 +28,12 @@ class ResidenciaController extends Controller
       $r->estrato = request()->estrato;
       $r->tipo = request()->tipo;
       $r->codigo = request()->codigo;
-      $r->location->$coordinates[0]=request()->longitude;
-      $r->location->$coordinates[1]=request()->latitude;
-      $r->location->$type="Point";
+      $r->coordinates=(object)array( "latitude" => request()->latitude, "longitude" => request()->longitude);
       $r->numero_residentes = request()->numero_residentes;
       $r->hab = request()->hab;
       $r->save();
 
-      return redirect()->route('residencia.index');
+      return view('welcome');
     }
 
     public function mostrar()

@@ -27,8 +27,7 @@ class PersonaController extends Controller
     public function store()
     {
         $p = new Persona();
-        $resident = Residencia::where('codigo', '>', codigo)->get();
-
+        
         $p->documento = request()->documento;
         $p->nombre = request()->nombre;
         $p->fecha_nacimiento = request()->fecha_nacimiento;
