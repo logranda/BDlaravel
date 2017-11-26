@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 Route::get('ConsultarResidencia', 'ResidenciaController@mostrar');
 Route::get('Resultados', 'ResidenciaController@resultado');
+Route::get('Residencia', 'ResidenciaController@mostrarLista');
+Route::get('Persona', 'PersonaController@mostrarPersona');
 Route::resource('estudiantes', 'EstudiantesController');
 Route::resource('persona', 'PersonaController');
 Route::resource('residencia', 'ResidenciaController');

@@ -29,7 +29,7 @@
 
         <div class = "col s4 #DDF5F7">
           <div>
-            <h3>Consultar la lista de residencias</h3>
+            <h3>Consultar la residencia</h3>
             <a href="{{route('residencia.index')}}" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Consultar</a>
           </div>
         </div>
@@ -45,14 +45,23 @@
 		<center>
         <h3>Información de la persona</h3>
     </center>
+
 		<div class = "row">
-        <div class = "col s4 l5 #DDF5F7">
+        <div class = "col s6 #DDF5F7">
+          <h3>¿Desea insertar una persona?</h3>
           <div>
-            <h3>¿Desea insertar una persona?</h3>
             <a href="{{route('persona.create')}}" class="waves-effect waves-light btn"><i class="material-icons left">contacts</i>Insertar Persona</a>
+          </div>
+        </div>
+
+        <div class = "col s6 #DDF5F7">
+          <div>
+            <h3>Consultar persona</h3>
+            <a href="{{route('persona.index')}}" class="waves-effect waves-light btn"><i class="material-icons left">contacts</i>Insertar Persona</a>
             <br></br>
           </div>
         </div>
+
     </div>
 	</body>
 <html>

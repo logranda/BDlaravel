@@ -3,39 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Residencia;
-//use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ResidenciaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
       $residencia = Residencia::all();
-      return view('residencia.index', compact('residencia'));
+      return view('residencia.SeleccionResidencia', compact('residencia'));
       //return view('residencia.CreateResidencia', compact('residencia'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('residencia.CreateResidencia');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store()
     {
       $r = new Residencia();
@@ -45,7 +28,9 @@ class ResidenciaController extends Controller
       $r->estrato = request()->estrato;
       $r->tipo = request()->tipo;
       $r->codigo = request()->codigo;
-      $r->coordinates=(object)array( "latitude" => request()->latitude, "longitude" => request()->longitude);
+      $r->location->$coordinates[0]=request()->longitude;
+      $r->location->$coordinates[1]=request()->latitude;
+      $r->location->$type="Point";
       $r->numero_residentes = request()->numero_residentes;
       $r->hab = request()->hab;
       $r->save();
@@ -53,16 +38,17 @@ class ResidenciaController extends Controller
       return redirect()->route('residencia.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function mostrar()
     {
         return view('busquedas.busquedaResidencia');
     }
+
+    public function mostrarLista()
+    {
+        $residencia = Residencia::where('codigo','=',request()->codigo)->get();
+        return view('residencia.index', compact('residencia'));
+    }
+    
     public function resultado()
     {
       $residencia = Residencia::where('location', 'near', [
