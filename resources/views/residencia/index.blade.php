@@ -42,13 +42,13 @@
 
 
 	</table>
-
+	@foreach($residencia as $r)  
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		        <script type="text/javascript">
 			            
 		                if (navigator.geolocation) {
 		                navigator.geolocation.getCurrentPosition(function (p) {
-		                    var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+		                    var LatLng = new google.maps.LatLng({{$r->coordinates['latitude']}}, {{$r->coordinates['longitude']}});
 		                    var mapOptions = {
 		                        center: LatLng,
 		                        zoom: 13,
@@ -72,7 +72,7 @@
 	        		
 				</script>
 	<div id="dvMap" style="width: 800px; height: 800px"></div>
-
+	@endforeach
 	<div class="row">
 		<div class="input-field col s6">
 			<a href="{{url('/')}}">
