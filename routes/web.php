@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('ConsultarResidencia', 'ResidenciaController@mostrar');
-Route::get('Resultados', 'ResidenciaController@resultado');
+Route::post('Resultados', 'ResidenciaController@resultado');
 Route::post('Residencia', 'ResidenciaController@mostrarLista');
 Route::get('Persona', 'PersonaController@mostrarPersona');
 Route::resource('estudiantes', 'EstudiantesController');

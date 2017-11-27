@@ -22,5 +22,13 @@
 				</div>
 			</div>
 		</form>
+
+		<div class="input-field col s6">
+			<a href="{{url('/')}}">
+				<button class="btn waves-effect waves-light" type="submit" name="action">Regresar al inicio
+					<i class="material-icons right">forward_5</i>
+				</button>
+			</a>
+		</div>
 	</body>
 </html>

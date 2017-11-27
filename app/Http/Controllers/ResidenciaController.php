@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Residencia;
+use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\Controller;
 
 class ResidenciaController extends Controller
@@ -25,12 +26,12 @@ class ResidenciaController extends Controller
       $r->direccion = request()->direccion;
       $r->barrio = request()->barrio;
       $r->municipio = request()->municipio;
-      $r->estrato = request()->estrato;
+      $r->estrato = intval(request()->estrato);
       $r->tipo = request()->tipo;
-      $r->codigo = request()->codigo;
-      $r->coordinates=(object)array( "latitude" => request()->latitude, "longitude" => request()->longitude);
-      $r->numero_residentes = request()->numero_residentes;
-      $r->hab = request()->hab;
+      $r->codigo = intval(request()->codigo);
+      $r->location = (object)array("coordinates"=>["latitude" => floatval(request()->latitude), "longitude" => floatval(request()->longitude)], "type" => "Point");
+      $r->numero_residentes = intval(request()->numero_residentes);
+      $r->hab = intval(request()->hab);
       $r->save();
 
       return view('welcome');
@@ -42,20 +43,30 @@ class ResidenciaController extends Controller
     }
 
     public function mostrarLista()
-    {      
-       $residencia = Residencia::where('codigo',htmlspecialchars($_POST["codigo"]) )->get();       
-       return view('residencia.index', compact('residencia'));
+    {
+
+      $codigo = (int) $_POST["codigo"];
+      $residencia = Residencia::where('codigo', '=', $codigo)->get();       
+      return view('residencia.index', compact('residencia'));
     }
     
     public function resultado()
     {
+      
+      $latitude = (float) $_POST['latitude'];
+      $longitude = (float) $_POST['longitude'];
+      $distancia_mimina = floatval($_POST['distancia_mimina']);
+      $distancia_maxima = floatval($_POST['distancia_maxima']);
+      
+      //$coordinates = array('latitude' => $latitude, 'longitude' => $longitude);
+
       $residencia = Residencia::where('location', 'near', [
           '$geometry' => [
-            'coordinates' => [ -73.9667, 40.78 ],
-            'type' => 'Point',
+            'type' => "Point",
+            'coordinates' => [$latitude, $longitude]
           ],
-          '$minDistance' => 0,
-          '$maxDistance' => 500
+          '$minDistance' => $distancia_mimina,
+          '$maxDistance' => $distancia_maxima
         ])->get();
 
         return view('busquedas.sitio', compact('residencia'));

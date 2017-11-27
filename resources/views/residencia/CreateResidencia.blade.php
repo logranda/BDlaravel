@@ -105,13 +105,24 @@
 				</div>
 	    	</form>
 		</div>
-
+		
+		<p>Click the button to get your coordinates.</p>
 		<div class="row">
-			<p>Click the button to get your coordinates.</p>
-				<button class="btn waves-effect waves-light" onclick="getLocation()">Obtener ubicación
-					<i class="material-icons right">send</i>
-				</button>
-			<p id="demo"></p>
+			<div class="input-field col s6">
+					<button class="btn waves-effect waves-light" onclick="getLocation()">Obtener ubicación
+						<i class="material-icons right">send</i>
+					</button>
+				<p id="demo"></p>
+			</div>
+
+			<div class="input-field col s6">
+				<a href="{{url('/')}}">
+					<button class="btn waves-effect waves-light" type="submit" name="action">Regresar al inicio
+						<i class="material-icons right">forward_5</i>
+					</button>
+				</a>
+			</div>
+
 		</div>
 
 	    <script>

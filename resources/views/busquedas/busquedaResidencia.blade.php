@@ -9,7 +9,7 @@
       		<div class = "card-panel teal lighten-2"><h3>Bienvenido al censo de Colombia</h3></div>
     	</center>
 
-		<form action="{{url('Resultados')}}" method="GET">
+		<form action="{{url('Resultados')}}" method="POST">
 			{{ csrf_field() }}
       		<center>
 				<h3>Por favor ingrese los datos para realizar la consulta</h3>

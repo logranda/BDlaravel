@@ -7,48 +7,54 @@
 	<title>Datos de la residencia</title>
 </head>
 <body>
-		<table class="centered">
-    <tr>
-			<th>_id</th>
-			<th>direccion</th>
-			<th>barrio</th>
-      		<th>municipio</th>
-			<th>estrato</th>
-			<th>tipo</th>
-      		<th>codigo</th>
-			<th>latitude</th>
-			<th>longitude</th>
-			<th>numero_residentes</th>
-      		<th>hab</th>
-	</tr>
+	<table class="centered">
+	    <div>
+	        <tr>
+	    		<th>_id</th>
+	    		<th>direccion</th>
+	    		<th>barrio</th>
+	            <th>municipio</th>
+	    	    <th>estrato</th>
+	    		<th>tipo</th>
+	            <th>codigo</th>
+	          	<th>type</th>
+	    		<th>Latitude</th>
+	    		<th>Longitude</th>
+	    		<th>#residentes</th>
+	          	<th>#habitantes</th>
+	    	  </tr>
+	      </div>
+	      <div>
+	        @foreach($residencia as $r)
+	            <tr>
+	              <td>{{$r->_id}}</td>
+	              <td>{{$r->direccion}}</td>
+	              <td>{{$r->barrio}}</td>
+	              <td>{{$r->municipio}}</td>
+	              <td>{{$r->estrato}}</td>
+	              <td>{{$r->tipo}}</td>
+	              <td>{{$r->codigo}}</td>
+	              <td>{{$r->location['type']}}</td>
+	              <td>{{$r->location['coordinates']['latitude']}}</td>
+	              <td>{{$r->location['coordinates']['longitude']}}</td>
+	      		  <td>{{$r->type}}</td>
+	              <td>{{$r->numero_residentes}}</td>
+	      		  <td>{{$r->hab}}</td>
+	            </tr>
+	        @endforeach
+	      </div>
 
-
-  @foreach($residencia as $r)  
-      <tr>
-        <td>{{$r->_id}}</td>
-        <td>{{$r->direccion}}</td>
-        <td>{{$r->barrio}}</td>
-        <td>{{$r->municipio}}</td>
-        <td>{{$r->estrato}}</td>
-        <td>{{$r->tipo}}</td>
-        <td>{{$r->codigo}}</td>
-    	
-        <td>{{$r->coordinates['latitude']}}</td>
-        <td>{{$r->coordinates['longitude']}}</td>
-        <td>{{$r->numero_residentes}}</td>
-		<td>{{$r->hab}}</td>
-      </tr>
-  @endforeach
 
 
 	</table>
+
 	@foreach($residencia as $r)  
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		        <script type="text/javascript">
 			            
 		                if (navigator.geolocation) {
 		                navigator.geolocation.getCurrentPosition(function (p) {
-		                    var LatLng = new google.maps.LatLng({{$r->coordinates['latitude']}}, {{$r->coordinates['longitude']}});
+		                    var LatLng = new google.maps.LatLng({{$r->location['coordinates']['latitude']}}, {{$r->location['coordinates']['longitude']}});
 		                    var mapOptions = {
 		                        center: LatLng,
 		                        zoom: 13,
@@ -72,7 +78,7 @@
 	        		
 				</script>
 	<div id="dvMap" style="width: 800px; height: 800px"></div>
-	@endforeach
+  	@endforeach				
 	<div class="row">
 		<div class="input-field col s6">
 			<a href="{{url('/')}}">

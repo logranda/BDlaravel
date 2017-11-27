@@ -1,4 +1,3 @@
-
 @section('contenido')
 <html>
 	<head>
@@ -171,16 +170,16 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="DocumetoPadre" type="number" name="documento" class="validate">
-					<label for="Documento">Documento</label>
+					<input id="DocumetoPadre" type="number" name="documentopadre" class="validate">
+					<label for="Documento del padre">Documento del padre</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="tipo_vinculo" type="text" name="tipo_vinculo" class="validate">
-					<label for="Tipo de vínculo">Tipo de vínculo</label>
+					<input id="tipo_vinculo_padre" type="text" name="vinculopadre" class="validate">
+					<label for="Vinculo">Vínculo</label>
 				</div>
 			</div>
 
@@ -188,16 +187,16 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="DocumetoMadre" type="number" name="documento" class="validate">
-					<label for="Documento">Documento</label>
+					<input id="DocumetoMadre" type="number" name="documentomadre" class="validate">
+					<label for="Documento de la madre">Documento de la madre</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="tipo_vinculo" type="text" name="tipo_vinculo" class="validate">
-					<label for="Tipo de vínculo">Tipo de vínculo</label>
+					<input id="tipo_vinculo_madre" type="text" name="vinculomadre" class="validate">
+					<label for="vínculo">Vínculo</label>
 				</div>
 			</div>
 
@@ -205,16 +204,16 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="DocumetoHermano" type="number" name="documento" class="validate">
-					<label for="Documento">Documento</label>
+					<input id="DocumetoHermano" type="number" name="documentohermano" class="validate">
+					<label for="Documento del Hermano">Documento del Hermano</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="tipo_vinculo" type="text" name="tipo_vinculo" class="validate">
-					<label for="Tipo de vínculos">Tipo de vínculo</label>
+					<input id="tipo_vinculo_hermano" type="text" name="vinculohermano" class="validate">
+					<label for="Vínculo">Vínculo</label>
 				</div>
 			</div>
 
@@ -222,33 +221,16 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="DocumetoHermana" type="number" name="documento" class="validate">
-					<label for="Documento">Documento</label>
+					<input id="DocumetoHermana" type="number" name="documentohermana" class="validate">
+					<label for="Documento de la Hermana">Documento de la Hermana</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="tipo_vinculo" type="text" name="tipo_vinculo" class="validate">
-					<label for="Tipo de vínculo">Tipo de vínculo</label>
-				</div>
-			</div>
-
-			<h3>Vínculo 5:</h3>
-			<div class="row">
-				<div class="input-field col s6">
-					<i class="material-icons prefix">contacts</i>
-					<input id="DocumetoHijo" type="number" name="documento" class="validate">
-					<label for="Documento">Documento</label>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="input-field col s6">
-					<i class="material-icons prefix">contacts</i>
-					<input id="tipo_vinculo" type="text" name="tipo_vinculo" class="validate">
-					<label for="Tipo de vínculo">Tipo de vínculo</label>
+					<input id="tipo_vinculo_hermana" type="text" name="vinculohermana" class="validate">
+					<label for="Vínculo">Vínculo</label>
 				</div>
 			</div>
 
@@ -256,28 +238,42 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="DocumetoHija" type="number" name="documento" class="validate">
-					<label for="Documento">Documento</label>
+					<input id="DocumetoHijo" type="number" name="documentohijo" class="validate">
+					<label for="Documento del hijo">Documento del hijo</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-					<input id="tipo_vinculo" type="text" name="tipo_vinculo" class="validate">
-					<label for="Tipo de vínculo">Tipo de vínculo</label>
+					<input id="tipo_vinculo_hijo" type="text" name="vinculohijo" class="validate">
+					<label for="Vínculo">Vínculo</label>
 				</div>
 			</div>
+
+			<h3>Vínculo 6:</h3>
+			<div class="row">
+				<div class="input-field col s6">
+					<i class="material-icons prefix">contacts</i>
+					<input id="DocumetoHija" type="number" name="documentohija" class="validate">
+					<label for="Documento de la hija">Documento de la hija</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<i class="material-icons prefix">contacts</i>
+					<input id="tipo_vinculo_hija" type="text" name="vinculohija" class="validate">
+					<label for="Vinculo">Vínculo</label>
+				</div>
+			</div>
+			
 			<div class="col s6 offset-s6">
 					<button class="btn waves-effect waves-light" type="submit" name="action">Registar
 						<i class="material-icons right">send</i>
 					</button>
 			</div>
 		</form>
-		<div class="row">
-			<div class="col s6"><h3>Regresar</h3></div>
-	      	<div class="col s6"><h3>Obtener ubicación</h3></div>
-      	</div>
 		<div class="row">
 			<form action="{{url('/')}}">
 				<div class="col s6">
