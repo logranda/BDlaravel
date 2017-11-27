@@ -32,12 +32,35 @@ class PersonaController extends Controller
         $p->fecha_nacimiento = request()->fecha_nacimiento;
         $p->municipio_nacimiento = request()->municipio_nacimiento;
         $p->grupo_sanguineo = request()->grupo_sanguineo;
+<<<<<<< HEAD
         $p->residencia = (object)array("residencia", request()->residencia);
         $p->educacion = (object)array("nombre_institucion" => request()->nombre_institucion, "año_inicio" => request()->año_inicio, "año_terminacion" =>request()->año_terminacion, "titulo_obtenido" => request()->titulo_obtenido, "tipo" =>request()->tipo);
         $p->financiera = (object)array("empresa" => request()->empresa, "salario"=>request()->salario, "tipo_empleo" =>request()->tipo_empleo, "entidades_bancarias" => request()->entidades_bancarias, "prestamo_vivienda" => request()->prestamo_vivienda);
 
         $p->nucleo_familiar = (object)array(["documento" => request()->documentopadre, "tipo_vinculo" => request()->vinculopadre], ["documento" => request()->vinculomadre, "tipo_vinculo" => request()->vinculomadre],["documento" => request()->documentohermano, "tipo_vinculo" => request()->vinculohermano],["documento" => request()->documentohermana, "tipo_vinculo" => request()->vinculohermana],["documento" => request()->documentohijo, "tipo_vinculo" => request()->vinculohijo],["documento" => request()->documentohija, "tipo_vinculo" => request()->vinculohija]);
 
+=======
+        $p->residencia = request()->resident;
+        $p->educacion=(object)array(
+            "nombre_institucion"=>request()->nombre_institucion,
+            "año_inicio"=>request()->año_inicio,
+            "año_terminacion"=>request()->año_terminacion,
+            "titulo_obtenido"=>request()->titulo_obtenido,
+            "tipo"=>request()->tipo
+        );
+        $p->financiera=(object)array(
+            "empresa"=> request()->empresa,
+            "salario"=>request()->salario,
+            "tipo_empleo"=>request()->tipo_empleo,
+            "entidades_bancarias"=>request()->entidades_bancarias,
+            "prestamo_vivienda"=>request()->prestamo_vivienda
+        );
+        $p->Grupo_Familiar=(object)array(
+            "Hermana"=> request()->documetoHermana,
+        );
+        
+        
+>>>>>>> 2512ace803df452815abab694eb73d15b612b65e
         $p->save();   
         return view('welcome');
     }
