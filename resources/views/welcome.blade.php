@@ -57,7 +57,7 @@
         <div class = "col s6 #DDF5F7">
           <div>
             <h3>Consultar persona</h3>
-            <a href="{{route('persona.index')}}" class="waves-effect waves-light btn"><i class="material-icons left">contacts</i>Insertar Persona</a>
+            <a href="{{route('persona.index')}}" class="waves-effect waves-light btn"><i class="material-icons left">contacts</i>Consultar Persona</a>
             <br></br>
           </div>
         </div>

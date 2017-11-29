@@ -5,27 +5,33 @@
 <html>
 <head>
 	<title>Datos de la residencia</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<table class="centered">
-	    <div>
-	        <tr>
-	    		<th>_id</th>
-	    		<th>direccion</th>
-	    		<th>barrio</th>
-	            <th>municipio</th>
-	    	    <th>estrato</th>
-	    		<th>tipo</th>
-	            <th>codigo</th>
-	          	<th>type</th>
-	    		<th>Latitude</th>
-	    		<th>Longitude</th>
-	    		<th>#residentes</th>
-	          	<th>#habitantes</th>
-	    	  </tr>
-	      </div>
-	      <div>
-	        @foreach($residencia as $r)
+	<div>
+		<h2>Datos de la residencia</h2>          
+		<table class="table table-bordered">
+		    <thead>
+		        <tr>	
+		    		<th>_id</th>
+		    		<th>direccion</th>
+		    		<th>barrio</th>
+		            <th>municipio</th>
+		    	    <th>estrato</th>
+		    		<th>tipo</th>
+		            <th>codigo</th>
+		          	<th>type</th>
+		    		<th>Latitude</th>
+		    		<th>Longitude</th>
+		          	<th>#habitantes</th>
+		    	  </tr>
+		     </thead>
+		     <tbody>
+	       
 	            <tr>
 	              <td>{{$r->_id}}</td>
 	              <td>{{$r->direccion}}</td>
@@ -37,18 +43,15 @@
 	              <td>{{$r->location['type']}}</td>
 	              <td>{{$r->location['coordinates']['latitude']}}</td>
 	              <td>{{$r->location['coordinates']['longitude']}}</td>
-	      		  <td>{{$r->type}}</td>
 	              <td>{{$r->numero_residentes}}</td>
-	      		  <td>{{$r->hab}}</td>
+	      		  
 	            </tr>
-	        @endforeach
-	      </div>
+	       
+		    </tbody>
+		</table>
+	</div>	    
 
-
-
-	</table>
-
-	@foreach($residencia as $r)  
+	<h2>Ubicación</h2>          
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		        <script type="text/javascript">
 			            
@@ -78,7 +81,7 @@
 	        		
 				</script>
 	<div id="dvMap" style="width: 800px; height: 800px"></div>
-  	@endforeach				
+  	
 	<div class="row">
 		<div class="input-field col s6">
 			<a href="{{url('/')}}">

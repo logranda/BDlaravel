@@ -18,7 +18,7 @@
 			      		<div class="row">
 			        		<div class="input-field col s6">
 								<i class="material-icons prefix">home</i>
-			          			<input id="direccion" type="text" name="direccion" class="validate">
+			          			<input id="direccion" type="text" name="direccion" class="validate" required>
 			          			<label for="Dirección">Dirección</label>
 			        		</div>
 						</div>
@@ -26,7 +26,7 @@
 						<div class="row">
 				        	<div class="input-field col s6">
 								<i class="material-icons prefix">home</i>
-				          		<input id="Barrio" type="text" name="barrio" class="validate">
+				          		<input id="Barrio" type="text" name="barrio" class="validate" required>
 				          		<label for="Barrio">Barrio</label>
 				        	</div>
 			      		</div>
@@ -34,7 +34,7 @@
 			      		<div class="row">
 			        		<div class="input-field col s6">
 								<i class="material-icons prefix">home</i>
-				          		<input id="Municipio" type="text" name="municipio" class="validate">
+				          		<input id="Municipio" type="text" name="municipio" class="validate" required>
 				        	  	<label for="Municipio">Municipio</label>
 			      			</div>
 			      		</div>
@@ -42,7 +42,7 @@
 						<div class="row">
 			        		<div class="input-field col s6">
 								<i class="material-icons prefix">home</i>
-			          			<input id="Estrato" type="number" name="estrato" class="validate">
+			          			<input id="Estrato" type="number" name="estrato" class="validate" required>
 			          			<label for="Estrato">Estrato</label>
 			        		</div>
 			      		</div>
@@ -50,7 +50,7 @@
 	          			<div class="row">
 	  		      			<div class="input-field col s6">
 	  							<i class="material-icons prefix">home</i>
-	  		          			<input id="Tipo" type="text" name="tipo" class="validate">
+	  		          			<input id="Tipo" type="text" name="tipo" class="validate" required>
 	  		          			<label for="Tipo">Tipo</label>
 	  		      			</div>
 	          			</div>
@@ -58,7 +58,7 @@
 						<div class="row">
 	  		      			<div class="input-field col s6">
 		  						<i class="material-icons prefix">home</i>
-		  		          		<input id="Codigo" type="number" name="codigo" class="validate">
+		  		          		<input id="Codigo" type="number" name="codigo" class="validate" required>
 	  		          			<label for="Código">Código</label>
 	  		      			</div>
 	  		      		</div>
@@ -67,7 +67,7 @@
 						<div class="row">
 							<div class="input-field col s6">
 								<i class="material-icons prefix">home</i>
-								<input id="latitude" type="number" step="0.0000001" name="latitude">
+								<input id="latitude" type="number" step="0.0000001" name="latitude" required>
 							</div>
 						</div>
 
@@ -76,25 +76,17 @@
 						<div class="row">
 							<div class="input-field col s6">
 								<i class="material-icons prefix">home</i>
-								<input id="longitude" type="number" step="0.0000001" name="longitude">
+								<input id="longitude" type="number" step="0.0000001" name="longitude" required>
 							</div>
 						</div>
 
 						<div class="row">
 		        			<div class="input-field col s6">
 								<i class="material-icons prefix">home</i>
-			          			<input id="numero_residentes" type="number" name="numero_residentes" class="validate">
-			          			<label for="Id residente">Id Residente</label>
+			          			<input id="numero_residentes" type="number" name="numero_residentes" class="validate" required>
+			          			<label for="Número de Habitantes">Número de Habitantes</label>
 		      				</div>
 						</div>
-
-		        		<div class="row">
-		        			<div class="input-field col s6">
-								<i class="material-icons prefix">home</i>
-		          				<input id="hab" type="number" name="hab" class="validate">
-		          				<label for="Número de Habitantes">Número de Habitantes</label>
-		      				</div>
-						</div>	  		
 					
 						<div class="row">
 		          			<button class="btn waves-effect waves-light" type="submit" name="action">		Registar residencia

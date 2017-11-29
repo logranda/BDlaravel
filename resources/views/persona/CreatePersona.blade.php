@@ -1,7 +1,12 @@
 @section('contenido')
+@extends('materialize')
 <html>
 	<head>
 		<title>Registro</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 	    <div class = "card-panel teal lighten-2"><h3>Bienvenido al censo de Colombia, por favor ingrese los datos</h3></div>
@@ -13,7 +18,7 @@
 	      	<div class="row">
 		        <div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-		          	<input id="first_name" type="number" name="documento" class="validate">
+		          	<input id="first_name" type="number" name="documento" class="validate" required>
 		          	<label for="Document">Documento</label>
 		     	</div>
 			</div>
@@ -21,7 +26,7 @@
 			<div class="row">
 	        	<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-		          	<input id="name" type="text" name="nombre" class="validate">
+		          	<input id="name" type="text" name="nombre" class="validate" required>
 		          	<label for="Name">Nombre</label>
 	        	</div>
 	     	 </div>
@@ -30,7 +35,7 @@
 	      	<div class="row">
 	        	<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-		          	<input id="fecha_nacimiento" type="date" name="fecha_nacimiento" class="validate">
+		          	<input id="fecha_nacimiento" type="date" name="fecha_nacimiento" class="validate" required>
 		          	<label for=""></label>
 	        	</div>
 	     	 </div>
@@ -38,23 +43,15 @@
 			<div class="row">
 	        	<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-	          		<input id="Municipio de nacimiento" type="text" name="municipio_nacimiento" class="validate">
+	          		<input id="Municipio de nacimiento" type="text" name="municipio_nacimiento" class="validate" required>
 	          		<label for="Municipio de nacimiento">Municipio de nacimiento</label>
-	        	</div>
-	      	</div>
-
-	      	<div class="row">
-	        	<div class="input-field col s6">
-					<i class="material-icons prefix">contacts</i>
-	          		<input id="Tipo" type="text" name="tipo" class="validate">
-	          		<label for="Tipo">Tipo</label>
 	        	</div>
 	      	</div>
 
 		  	<div class="row">
 	        	<div class="input-field col s6">
 					<i class="material-icons prefix">contacts</i>
-	          		<input id="GrupoSanguineo" type="text" name="grupo_sanguineo" class="validate">
+	          		<input id="GrupoSanguineo" type="text" name="grupo_sanguineo" class="validate" required>
 	          		<label for="GrupoSanguineo">Grupo sanguíneo</label>
 	      		</div>
 			</div>
@@ -64,13 +61,13 @@
 			</center>
 
 			<div class="form-group">
-				<label for="">Residencia</label>
-	        	<div class="input-field col s6">
-					<select name="codigo" id="codigo" class="form-control">
-					   <option value="">Elige la residencia</option>
-					   @foreach($residencia as $res)
-					   		<option value="{{$res->codigo}}">{{$res->codigo}}</option>
-					   @endforeach
+				<div class="input-field col s6">
+					<select name="codigo" style="width:170px" class="form-control">
+			   			<option value="">Elige la residencia</option>
+			   			@foreach($residencia as $res)
+					   		<option value="{{$res->codigo}}">{{$res->codigo}}</option>				   			
+					   		</td>
+			    		@endforeach
 					</select>
 				</div>
 			</div>
@@ -82,7 +79,7 @@
 		    <div class="row">
 		        <div class="input-field col s6">
 					<i class="material-icons prefix">school</i>
-		          	<input id="nombre_institucion" type="text" name="nombre_institucion" class="validate">
+		          	<input id="nombre_institucion" type="text" name="nombre_institucion" class="validate" required>
 		          	<label for="Institución">Institución</label>
 		        </div>
 			</div>
@@ -91,7 +88,7 @@
 				<div>fecha de inicio</div>
 			        <div class="input-field col s6">
 					<i class="material-icons prefix">school</i>
-			        <input id="fecha_inicio" type="date" name="año_inicio" class="validate">
+			        <input id="fecha_inicio" type="date" name="año_inicio" class="validate" required>
 			    </div>
 		    </div>
 
@@ -99,14 +96,14 @@
 				<div>fecha fin</div>
 		        	<div class="input-field col s6">
 					<i class="material-icons prefix">school</i>
-		          	<input id="fecha_fin" type="date" name="año_terminacion" class="validate">
+		          	<input id="fecha_fin" type="date" name="año_terminacion" class="validate" required>
 	      		</div>
 	      	</div>
 
 			<div class="row">
 		        <div class="input-field col s6">
 					<i class="material-icons prefix">school</i>
-		          	<input id="Titulo" type="text" name="titulo_obtenido" class="validate">
+		          	<input id="Titulo" type="text" name="titulo_obtenido" class="validate" required>
 		          	<label for="Título">Título</label>
 		        </div>
 			</div>
@@ -114,7 +111,7 @@
 			<div class="row">
 		        <div class="input-field col s6">
 					<i class="material-icons prefix">school</i>
-		          	<input id="Tipo" type="text" name="tipo" class="validate">
+		          	<input id="Tipo" type="text" name="tipo" class="validate" required>
 		          	<label for="Tipo">Tipo</label>
 		        </div>
 		    </div>

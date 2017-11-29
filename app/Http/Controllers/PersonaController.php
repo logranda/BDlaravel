@@ -25,44 +25,33 @@ class PersonaController extends Controller
     }
 
     public function store()
-    {
+    {   
+        $codigo = (int) $_POST["codigo"];
+        //$residencia = Residencia::where('codigo', '=', $codigo)->get();       
+        //var_dump($residencia);
+        
         $p = new Persona();
-        $p->documento = request()->documento;
-        $p->nombre = request()->nombre;
-        $p->fecha_nacimiento = request()->fecha_nacimiento;
-        $p->municipio_nacimiento = request()->municipio_nacimiento;
-        $p->grupo_sanguineo = request()->grupo_sanguineo;
 
-        $p->residencia = (object)array("residencia", request()->residencia);
-        $p->educacion = (object)array("nombre_institucion" => request()->nombre_institucion, "año_inicio" => request()->año_inicio, "año_terminacion" =>request()->año_terminacion, "titulo_obtenido" => request()->titulo_obtenido, "tipo" =>request()->tipo);
-        $p->financiera = (object)array("empresa" => request()->empresa, "salario"=>request()->salario, "tipo_empleo" =>request()->tipo_empleo, "entidades_bancarias" => request()->entidades_bancarias, "prestamo_vivienda" => request()->prestamo_vivienda);
+        if($codigo == 0 || intval(request()->documento) == 0) {
+            echo "Error en la inserción, el código y el documento no puede ser cero";    
+            $residencia = Residencia::all();
+            return view('persona.CreatePersona', compact('residencia'));
+        }else{
+            $p->documento = intval(request()->documento);
+            $p->nombre = request()->nombre;
+            $p->fecha_nacimiento = request()->fecha_nacimiento;
+            $p->municipio_nacimiento = request()->municipio_nacimiento;
+            $p->grupo_sanguineo = request()->grupo_sanguineo;
+            $p->codigo_residencia = intval($codigo);
+            $p->educacion = (object)array("nombre_institucion" => request()->nombre_institucion, "año_inicio" => request()->año_inicio, "año_terminacion" =>request()->año_terminacion, "titulo_obtenido" => request()->titulo_obtenido, "tipo" =>request()->tipo);
+            $p->financiera = (object)array("empresa" => request()->empresa, "salario"=>intval(request()->salario), "tipo_empleo" =>request()->tipo_empleo, "entidades_bancarias" => request()->entidades_bancarias, "prestamo_vivienda" => request()->prestamo_vivienda);
 
-        $p->nucleo_familiar = (object)array(["documento" => request()->documentopadre, "tipo_vinculo" => request()->vinculopadre], ["documento" => request()->vinculomadre, "tipo_vinculo" => request()->vinculomadre],["documento" => request()->documentohermano, "tipo_vinculo" => request()->vinculohermano],["documento" => request()->documentohermana, "tipo_vinculo" => request()->vinculohermana],["documento" => request()->documentohijo, "tipo_vinculo" => request()->vinculohijo],["documento" => request()->documentohija, "tipo_vinculo" => request()->vinculohija]);
+            $p->nucleo_familiar = (object)array("padre"=>["documento" => intval(request()->documentopadre), "tipo_vinculo" => request()->vinculopadre], "madre"=>["documento" => intval(request()->vinculomadre), "tipo_vinculo" => request()->vinculomadre], "hermano"=>["documento" => intval(request()->documentohermano), "tipo_vinculo" => request()->vinculohermano],"hermana"=>["documento" => intval(request()->documentohermana), "tipo_vinculo" => request()->vinculohermana], "hijo"=>["documento" => intval(request()->documentohijo), "tipo_vinculo" => request()->vinculohijo],"hija"=>["documento" => intval(request()->documentohija), "tipo_vinculo" => request()->vinculohija]);
 
+            $p->save();   
+            return view('welcome');
+        }
 
-        $p->residencia = request()->resident;
-        $p->educacion=(object)array(
-            "nombre_institucion"=>request()->nombre_institucion,
-            "año_inicio"=>request()->año_inicio,
-            "año_terminacion"=>request()->año_terminacion,
-            "titulo_obtenido"=>request()->titulo_obtenido,
-            "tipo"=>request()->tipo
-        );
-        $p->financiera=(object)array(
-            "empresa"=> request()->empresa,
-            "salario"=>request()->salario,
-            "tipo_empleo"=>request()->tipo_empleo,
-            "entidades_bancarias"=>request()->entidades_bancarias,
-            "prestamo_vivienda"=>request()->prestamo_vivienda
-        );
-        $p->Grupo_Familiar=(object)array(
-            "Hermana"=> request()->documetoHermana,
-        );
-        
-        
-
-        $p->save();   
-        return view('welcome');
     }
 
     public function mostrar()
@@ -72,10 +61,18 @@ class PersonaController extends Controller
 
     public function mostrarPersona()
     {
-        $persona = Persona::where('_id','=',request()->_id)->get();
-        var_dump($persona);
+        if (empty($_POST["documento"])) {
+            echo "Error, por favor vuelve a elegir";  
+            $persona = Persona::all();  
+            return view('persona.SeleccionPersona', compact('persona'));
         
-        return view('persona.index', compact('persona'));
+        }else{
+            $documento = (int) $_POST["documento"];
+            $persona = Persona::where('documento','=',$documento)->first();
+            $resicenciaPersona = Residencia::where("codigo", '=' ,$persona->codigo_residencia)->first();
+            return view('persona.index', ['p'=> $persona, 'r' => $resicenciaPersona]);
+        }
+        
     }
 
 }

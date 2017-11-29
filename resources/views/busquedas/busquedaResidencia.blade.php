@@ -20,7 +20,7 @@
 	      		<div class="row">
 	        		<div class="input-field col s6">
 						<i class="material-icons prefix">home</i>
-	          			<input id="latitude" type="number" name="latitude" step="0.00000001" class="validate">
+	          			<input id="latitude" type="number" name="latitude" step="0.00000001" class="validate" required>
 	          			<label for="Latitude">Latitude</label>
 		        	</div>
 				</div>
@@ -28,7 +28,7 @@
 				<div class="row">
 		        	<div class="input-field col s6">
 						<i class="material-icons prefix">home</i>
-		          		<input id="longitude" type="number" name="longitude" step="0.00000001" class="validate">
+		          		<input id="longitude" type="number" name="longitude" step="0.00000001" class="validate" required>
 		          		<label for="Longitude">Longitude</label>
 		        	</div>
 	      		</div>
@@ -36,7 +36,7 @@
 	      		<div class="row">
 	        		<div class="input-field col s6">
 						<i class="material-icons prefix">home</i>
-	          			<input id="Distancia_mimina" type="number" name="distancia_mimina" step="0.00000001" class="validate">
+	          			<input id="Distancia_mimina" type="number" name="distancia_mimina" step="0.00000001" class="validate" required>
 	          			<label for="Distancia mínima">Distancia Mínima</label>
 	      			</div>
 	      		</div>
@@ -44,7 +44,7 @@
 	        	<div class="row">
 		        	<div class="input-field col s6">
 						<i class="material-icons prefix">home</i>
-		          		<input id="Distancia_maxima" type="number" name="distancia_maxima" step="0.00000001" class="validate">
+		          		<input id="Distancia_maxima" type="number" name="distancia_maxima" step="0.00000001" class="validate" required>
 		          		<label for="Distancia máxima">Distancia Máxima</label>
 		      		</div>
 		     	</div>
